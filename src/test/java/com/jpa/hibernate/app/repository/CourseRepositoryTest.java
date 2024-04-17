@@ -56,7 +56,7 @@ class CourseRepositoryTest {
 
 	@Test
 	void testJpql() {
-		TypedQuery<Course> query = entityManager.createQuery("select c from Course c", Course.class);
+		TypedQuery<Course> query = entityManager.createNamedQuery("query_get_all_courses", Course.class);
 
 		List<Course> results = query.getResultList();
 
@@ -65,10 +65,10 @@ class CourseRepositoryTest {
 
 	@Test
 	void testJpql_where() {
-		TypedQuery<Course> query = entityManager.createQuery("select c from Course c where name like '%JAVA%'", Course.class);
+		TypedQuery<Course> query = entityManager.createNamedQuery("query_get_java_courses", Course.class);
 
 		List<Course> results = query.getResultList();
 
-		logger.info("testJpql - result: {}", results);
+		logger.info("testJpql_where - result: {}", results);
 	}
 }

@@ -7,29 +7,21 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name="Course")
-@NamedQueries(value = {
-    @NamedQuery(name="query_get_all_courses", query="select c from Course c"),
-    @NamedQuery(name="query_get_java_courses", query="select c from Course c where name like '%JAVA%'")
-})
-public class Course {
+@Table(name="Student")
+public class Student {
   @Id
   @GeneratedValue
   private Long id;
   @Column(name="name", nullable = false)
   private String name;
 
-  @UpdateTimestamp
-  private LocalDateTime lastUpdatedDate;
+  @OneToOne
+  private Passport passport;
 
-  @CreationTimestamp
-  private LocalDateTime createDate;
-
-  public Course() {
-
+  public Student() {
   }
 
-  public Course(String name) {
+  public Student(String name) {
     this.name = name;
   }
 
@@ -45,9 +37,17 @@ public class Course {
     return id;
   }
 
+  public Passport getPassport() {
+    return passport;
+  }
+
+  public void setPassport(Passport passport) {
+    this.passport = passport;
+  }
+
   @Override
   public String toString() {
-    return "Course{" +
+    return "Student{" +
         "id=" + id +
         ", name='" + name + '\'' +
         '}';

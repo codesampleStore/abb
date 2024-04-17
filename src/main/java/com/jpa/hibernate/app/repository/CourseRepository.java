@@ -33,7 +33,7 @@ public class CourseRepository {
   }
 
   public void playWithEntityManager() {
-    logger.info("playWithEntityManager START");
+    /*logger.info("playWithEntityManager START");
     Course c1 = new Course("WebServices in 100 Steps");
     entityManager.persist(c1);
     entityManager.flush();
@@ -50,9 +50,11 @@ public class CourseRepository {
     c2.setName("GenAI in 100 Steps - New ");
     entityManager.refresh(c2);
     System.out.println("C2:"+ c2);
-    entityManager.flush();
+    entityManager.flush();*/
 
     Course course = findById(10005L);
     course.setName(course.getName()+"_updated");
+    entityManager.persist(course);
+    entityManager.flush();
   }
 }
