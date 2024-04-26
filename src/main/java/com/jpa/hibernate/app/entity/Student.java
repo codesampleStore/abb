@@ -18,6 +18,8 @@ public class Student {
   @OneToOne
   private Passport passport;
 
+  private Double gradeAvg;
+
   public Student() {
   }
 
@@ -43,6 +45,14 @@ public class Student {
 
   public void setPassport(Passport passport) {
     this.passport = passport;
+  }
+
+  public Double getGradeAvg() {
+    return gradeAvg;
+  }
+
+  public void setGradeAvg(Double gradeAvg) {
+    this.gradeAvg = gradeAvg;
   }
 
   @Override
