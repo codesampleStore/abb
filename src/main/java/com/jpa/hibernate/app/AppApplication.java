@@ -40,6 +40,7 @@ public class AppApplication implements CommandLineRunner {
 
 		System.out.println("Student ID 10001: " + studentRepositoryJpa.findStudentById(20001L));
 		System.out.println("TOP 3 by avg grade: " + studentRepositoryJpa.findTopStudents3ByGradeAvg());
+		System.out.println("TOP 3 by name: " + studentRepository.findTop3ByColumn("name"));
 
 	}
 }
